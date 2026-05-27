@@ -1,19 +1,1243 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Redirecting…</title>
-    <meta http-equiv="refresh" content="0; url=./logindarkhaptic.html">
-    <script>
-        // Fallback: JavaScript redirect
-        window.location.replace('./logindarkhaptic.html');
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Chronicle — Sign Up</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ink: #1a1208;
+            --paper: #f5f0e8;
+            --accent: #c0392b;
+            --mid: #7a6f5e;
+            --light: #e8e0d0;
+            --white: #fdfaf4;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Source Sans 3', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* ── MASTHEAD ── */
+        .masthead {
+            border-bottom: 3px double var(--ink);
+            padding: 18px 40px 14px;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .masthead-date {
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-bottom: 6px;
+        }
+
+        .masthead-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(38px, 6vw, 72px);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .masthead-tagline {
+            font-size: 11px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--mid);
+            margin-top: 6px;
+        }
+
+        .masthead-rule {
+            margin-top: 12px;
+            border: none;
+            border-top: 1px solid var(--ink);
+        }
+
+        /* ── SCREENS ── */
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* ── SIGNUP PAGE ── */
+        .signup-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px 1fr;
+            gap: 0;
+            min-height: calc(100vh - 120px);
+        }
+
+        .signup-sidebar {
+            border-right: 1px solid var(--light);
+            padding: 40px 28px;
+        }
+
+        .signup-sidebar-right {
+            border-left: 1px solid var(--light);
+            padding: 40px 28px;
+        }
+
+        .sidebar-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .sidebar-item-tag {
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .sidebar-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            line-height: 1.35;
+            margin-top: 4px;
+        }
+
+        .sidebar-item-byline {
+            font-size: 11px;
+            color: var(--mid);
+            margin-top: 4px;
+        }
+
+        .signup-main {
+            padding: 48px 36px;
+            background: var(--white);
+            border-left: 1px solid var(--light);
+            border-right: 1px solid var(--light);
+        }
+
+        .signup-intro {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .signup-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .signup-intro p {
+            font-size: 13.5px;
+            color: var(--mid);
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--mid);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            border: 1px solid #c8bfad;
+            background: var(--paper);
+            padding: 11px 14px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 14px;
+            color: var(--ink);
+            outline: none;
+            transition: border-color .2s;
+            border-radius: 2px;
+            appearance: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--ink);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a6f5e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-section-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--ink);
+            border-top: 1px solid var(--light);
+            padding-top: 18px;
+            margin-top: 6px;
+            margin-bottom: 14px;
+            letter-spacing: .02em;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: var(--ink);
+            color: var(--white);
+            border: none;
+            padding: 13px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 13px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background .2s;
+            border-radius: 2px;
+            margin-top: 6px;
+        }
+
+        .btn-primary:hover {
+            background: #2d2418;
+        }
+
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--mid);
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--light);
+        }
+
+        .terms-note {
+            font-size: 11px;
+            color: var(--mid);
+            text-align: center;
+            margin-top: 18px;
+            line-height: 1.6;
+        }
+
+        .terms-note a {
+            color: var(--ink);
+        }
+
+        /* ── HOME PAGE ── */
+        #home-screen {
+            background: var(--paper);
+        }
+
+        .home-nav {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            padding: 10px 40px;
+            border-bottom: 1px solid var(--light);
+            background: var(--white);
+            flex-wrap: wrap;
+        }
+
+        .home-nav a {
+            font-size: 11.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .home-nav a:hover {
+            color: var(--accent);
+        }
+
+        .home-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .home-lead {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding-bottom: 32px;
+            border-bottom: 3px double var(--ink);
+            margin-bottom: 32px;
+        }
+
+        .home-lead-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3.5vw, 38px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .home-lead-tag {
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .home-lead-body {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #2e2618;
+        }
+
+        .home-lead-byline {
+            font-size: 12px;
+            color: var(--mid);
+            margin-top: 12px;
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .article-card {
+            border-top: 2px solid var(--ink);
+            padding-top: 14px;
+        }
+
+        .article-card-tag {
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .article-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .article-card-body {
+            font-size: 13px;
+            color: var(--mid);
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .article-card-byline {
+            font-size: 11px;
+            color: #9a8f7e;
+            margin-top: 10px;
+        }
+
+        /* ── COOKIE / CONSENT POPUP ── */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 8, 4, 0.55);
+            z-index: 100;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 0 0 0 0;
+            opacity: 0;
+            transition: opacity .35s;
+            pointer-events: none;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .consent-box {
+            background: var(--white);
+            width: 100%;
+            max-width: 100%;
+            border-top: 3px solid var(--ink);
+            padding: 28px 40px 32px;
+            transform: translateY(40px);
+            transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+        }
+
+        .overlay.show .consent-box {
+            transform: translateY(0);
+        }
+
+        .consent-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .consent-top {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .consent-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .consent-body {
+            font-size: 13px;
+            color: #3a3025;
+            line-height: 1.65;
+        }
+
+        .consent-body strong {
+            color: var(--ink);
+        }
+
+        /* Checkbox grid */
+        .consent-checks {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            border-top: 1px solid var(--light);
+            border-bottom: 1px solid var(--light);
+            padding: 16px 0;
+            margin-bottom: 16px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            border: 1px solid var(--light);
+            border-radius: 2px;
+            background: var(--paper);
+            transition: border-color .15s, background .15s;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .check-item:has(input:checked) {
+            background: #ede7d7;
+            border-color: #b5a98a;
+        }
+
+        .check-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            margin-top: 2px;
+            accent-color: var(--ink);
+            cursor: pointer;
+        }
+
+        .check-item-text {}
+
+        .check-item-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .check-item-desc {
+            font-size: 11px;
+            color: var(--mid);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+
+        .check-item-required .check-item-title::after {
+            content: ' (required)';
+            font-weight: 400;
+            font-size: 10px;
+            color: var(--mid);
+        }
+
+        .consent-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-accept {
+            background: var(--ink);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 12.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background .2s;
+            white-space: nowrap;
+        }
+
+        .btn-accept:hover {
+            background: #2d2418;
+        }
+
+        .btn-save {
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--ink);
+            padding: 11px 24px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 12.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .15s;
+            white-space: nowrap;
+        }
+
+        .btn-save:hover {
+            border-color: var(--mid);
+            color: var(--mid);
+        }
+
+        .btn-decline {
+            background: transparent;
+            color: var(--mid);
+            border: 1.5px solid var(--light);
+            padding: 11px 24px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 12.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .15s;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .btn-decline:hover {
+            border-color: var(--mid);
+            color: var(--ink);
+        }
+
+        /* Shake animation for haptic-style visual feedback */
+        @keyframes alarm-shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            10% {
+                transform: translateX(-6px) rotate(-1.5deg);
+            }
+
+            20% {
+                transform: translateX(6px) rotate(1.5deg);
+            }
+
+            30% {
+                transform: translateX(-5px) rotate(-1deg);
+            }
+
+            40% {
+                transform: translateX(5px) rotate(1deg);
+            }
+
+            50% {
+                transform: translateX(-3px);
+            }
+
+            60% {
+                transform: translateX(3px);
+            }
+
+            70% {
+                transform: translateX(-2px);
+            }
+
+            80% {
+                transform: translateX(2px);
+            }
+
+            90% {
+                transform: translateX(-1px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes flash-red {
+
+            0%,
+            100% {
+                box-shadow: none;
+            }
+
+            25% {
+                box-shadow: 0 0 0 3px #c0392b88;
+            }
+
+            75% {
+                box-shadow: 0 0 0 6px #c0392b44;
+            }
+        }
+
+        .btn-decline.alarming {
+            animation: alarm-shake 0.55s ease both, flash-red 0.55s ease both;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Response banner */
+        .response-banner {
+            display: none;
+            padding: 10px 16px;
+            font-size: 13px;
+            border-radius: 2px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        .response-banner.accepted {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-left: 3px solid #388e3c;
+        }
+
+        .response-banner.declined {
+            background: #fce4e4;
+            color: #c0392b;
+            border-left: 3px solid var(--accent);
+        }
+
+        .response-banner.show {
+            display: block;
+        }
+
+        /* Experiment label */
+        .exp-label {
+            position: fixed;
+            top: 12px;
+            right: 16px;
+            background: #1a1208ee;
+            color: #f5e6b4;
+            font-size: 10px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 2px;
+            z-index: 999;
+        }
+
+        @media (max-width: 700px) {
+            .masthead {
+                padding: 14px 18px 12px;
+            }
+
+            .masthead-title {
+                font-size: clamp(28px, 10vw, 44px);
+            }
+
+            .masthead-tagline {
+                font-size: 10px;
+            }
+
+            .signup-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-sidebar,
+            .signup-sidebar-right {
+                display: none;
+            }
+
+            .signup-main {
+                padding: 24px 18px;
+                border-left: none;
+                border-right: none;
+            }
+
+            .home-nav {
+                justify-content: flex-start;
+                gap: 12px;
+                padding: 10px 16px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .home-nav a {
+                display: inline-block;
+                white-space: nowrap;
+            }
+
+            .home-content {
+                padding: 24px 16px;
+            }
+
+            .home-lead,
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consent-box {
+                border-radius: 18px 18px 0 0;
+                padding: 22px 18px 24px;
+                max-width: 100%;
+            }
+
+            .consent-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .consent-actions .btn-accept,
+            .consent-actions .btn-save {
+                width: 100%;
+                padding: 14px 16px;
+            }
+
+            .consent-checks {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .check-item {
+                padding: 14px 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group input,
+            .form-group select {
+                min-height: 46px;
+            }
+
+            .btn-primary {
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+
+            .form-divider {
+                gap: 10px;
+                margin: 18px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <p>Redirecting to <a href="./logindarkhaptic.html">logindarkhaptic.html</a> — click if you are not redirected.</p>
+
+    <div class="exp-label">Research Prototype</div>
+
+    <!-- ══════════════ SIGNUP SCREEN ══════════════ -->
+    <div id="signup-screen" class="screen active">
+
+        <header class="masthead">
+            <div class="masthead-date" id="today-date"></div>
+            <div class="masthead-title">The Chronicle</div>
+            <div class="masthead-tagline">Independent · Impartial · In-depth</div>
+            <hr class="masthead-rule" />
+        </header>
+
+        <div class="signup-layout">
+
+            <!-- Left sidebar: teasers -->
+            <aside class="signup-sidebar">
+                <div class="sidebar-headline">Top Stories</div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Politics</div>
+                    <div class="sidebar-item-title">Coalition Talks Enter Third Week as Deadline Looms</div>
+                    <div class="sidebar-item-byline">By R. Hartmann · 3h ago</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Economy</div>
+                    <div class="sidebar-item-title">ECB Signals Rate Pause Amid Slowing Inflation Data</div>
+                    <div class="sidebar-item-byline">By S. de Vries · 5h ago</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Climate</div>
+                    <div class="sidebar-item-title">Record Spring Temperatures Prompt Drought Warnings Across Southern
+                        Europe
+                    </div>
+                    <div class="sidebar-item-byline">By A. Becker · 8h ago</div>
+                </div>
+            </aside>
+
+            <!-- Center: sign-up form -->
+            <main class="signup-main">
+                <div class="signup-intro">
+                    <h2>Create your free account</h2>
+                    <p>Join over 2.4 million readers.<br />Unlimited access to breaking news, analysis &amp; opinion.
+                    </p>
+                </div>
+
+                <!-- Account credentials -->
+                <div class="form-section-label">Account details</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstname">First name</label>
+                        <input type="text" id="firstname" placeholder="Jan" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last name</label>
+                        <input type="text" id="lastname" placeholder="de Vries" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="jan@example.com" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Min. 8 characters" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm password</label>
+                        <input type="password" id="password2" placeholder="Repeat password" />
+                    </div>
+                </div>
+
+                <!-- Personal information -->
+                <div class="form-section-label">Personal information</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of birth</label>
+                        <input type="date" id="dob" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender">
+                            <option value="" disabled selected>Select…</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Non-binary</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" id="phone" placeholder="+31 6 12 34 56 78" />
+                </div>
+                <div class="form-group">
+                    <label for="address">Street address</label>
+                    <input type="text" id="address" placeholder="Kerkstraat 12" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" id="postcode" placeholder="3991 AA" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="Houten" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option value="" disabled selected>Select country…</option>
+                        <option selected>Netherlands</option>
+                        <option>Belgium</option>
+                        <option>Germany</option>
+                        <option>United Kingdom</option>
+                        <option>France</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <!-- Reader profile -->
+                <div class="form-section-label">Reader profile</div>
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <select id="occupation">
+                        <option value="" disabled selected>Select…</option>
+                        <option>Student</option>
+                        <option>Academic / Researcher</option>
+                        <option>Journalist / Media</option>
+                        <option>Government / Public sector</option>
+                        <option>Private sector — Finance</option>
+                        <option>Private sector — Technology</option>
+                        <option>Private sector — Other</option>
+                        <option>Self-employed</option>
+                        <option>Retired</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="education">Education level</label>
+                        <select id="education">
+                            <option value="" disabled selected>Select…</option>
+                            <option>Secondary school</option>
+                            <option>Bachelor's degree</option>
+                            <option>Master's degree</option>
+                            <option>Doctorate (PhD)</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Household income</label>
+                        <select id="income">
+                            <option value="" disabled selected>Select…</option>
+                            <option>Under €25,000</option>
+                            <option>€25,000 – €50,000</option>
+                            <option>€50,000 – €100,000</option>
+                            <option>€100,000 – €150,000</option>
+                            <option>Over €150,000</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="goToHome()">Create account &amp; continue →</button>
+
+                <p class="terms-note">By signing up you agree to our <a href="#">Terms of Service</a> and <a
+                        href="#">Privacy
+                        Policy</a>. We may send you subscriber newsletters. You can opt out at any time.</p>
+            </main>
+
+            <!-- Right sidebar: feature list -->
+            <aside class="signup-sidebar-right">
+                <div class="sidebar-headline">Member Benefits</div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Unlimited Reading</div>
+                    <div class="sidebar-item-title">Access every article in our archive, without paywalls.</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Daily Briefings</div>
+                    <div class="sidebar-item-title">Morning & evening digests curated by our editors.</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Newsletters</div>
+                    <div class="sidebar-item-title">Specialist newsletters on Climate, Tech, and Markets.</div>
+                </div>
+                <div class="sidebar-item">
+                    <div class="sidebar-item-tag">Ad-light Experience</div>
+                    <div class="sidebar-item-title">Fewer interruptions for registered members.</div>
+                </div>
+            </aside>
+
+        </div>
+    </div><!-- /signup-screen -->
+
+
+    <!-- ══════════════ HOME SCREEN ══════════════ -->
+    <div id="home-screen" class="screen">
+
+        <header class="masthead">
+            <div class="masthead-date" id="today-date-home"></div>
+            <div class="masthead-title">The Chronicle</div>
+            <div class="masthead-tagline">Independent · Impartial · In-depth</div>
+            <hr class="masthead-rule" />
+        </header>
+
+        <nav class="home-nav">
+            <a href="#">Home</a>
+            <a href="#">Politics</a>
+            <a href="#">World</a>
+            <a href="#">Economy</a>
+            <a href="#">Science</a>
+            <a href="#">Climate</a>
+            <a href="#">Technology</a>
+            <a href="#">Culture</a>
+            <a href="#">Opinion</a>
+        </nav>
+
+        <div class="home-content">
+            <div class="home-lead">
+                <div>
+                    <div class="home-lead-tag">Breaking · World</div>
+                    <div class="home-lead-title">G7 Finance Ministers Reach Landmark Agreement on Global Minimum Tax
+                        Enforcement
+                    </div>
+                    <div class="home-lead-byline">By Clara Steinberg, Economics Correspondent · Published today</div>
+                </div>
+                <div>
+                    <div class="home-lead-body">Finance ministers from the seven largest economies signed a binding
+                        protocol on
+                        Sunday that commits member states to enforcing the 15 percent global minimum corporate tax
+                        agreed in 2021,
+                        closing loopholes that had allowed multinationals to continue shifting profits to low-tax
+                        jurisdictions.
+                    </div>
+                    <div class="home-lead-body" style="margin-top:12px">The deal is expected to raise an estimated €200
+                        billion in
+                        additional tax revenue annually across G7 nations, funds earmarked primarily for green
+                        infrastructure and
+                        digital public services.</div>
+                </div>
+            </div>
+
+            <div class="home-grid">
+                <div class="article-card">
+                    <div class="article-card-tag">Politics</div>
+                    <div class="article-card-title">Opposition Leader Calls for Early Election After Budget Defeat</div>
+                    <div class="article-card-body">The minority government faces its stiffest test yet as three
+                        coalition partners
+                        withdraw support over pension reform amendments.</div>
+                    <div class="article-card-byline">R. Hartmann · 2h ago</div>
+                </div>
+                <div class="article-card">
+                    <div class="article-card-tag">Technology</div>
+                    <div class="article-card-title">Smartphone Makers Race to Embed On-Device AI Ahead of Holiday Season
+                    </div>
+                    <div class="article-card-body">Manufacturers are competing fiercely to ship handsets with fully
+                        local large
+                        language models, promising privacy and offline capability.</div>
+                    <div class="article-card-byline">M. Nkosi · 4h ago</div>
+                </div>
+                <div class="article-card">
+                    <div class="article-card-tag">Climate</div>
+                    <div class="article-card-title">Dutch Water Boards Warn of Record Low Groundwater Levels This Spring
+                    </div>
+                    <div class="article-card-body">After the driest April since 1901, water authorities are urging
+                        municipalities
+                        to accelerate rainwater retention investments before summer arrives.</div>
+                    <div class="article-card-byline">F. van den Berg · 6h ago</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── CONSENT POPUP ── -->
+        <div class="overlay" id="consent-overlay">
+            <div class="consent-box">
+                <div class="consent-inner">
+                    <div>
+                        <div class="consent-heading">Your data, your choice</div>
+                        <div class="consent-body">
+                            We and our <strong>47 advertising partners</strong> would like to store cookies on your
+                            device and process
+                            your personal data — including browsing behaviour, location, and device identifiers — to
+                            personalise
+                            content and ads, measure performance, and improve our services. Your data may be shared with
+                            partners in
+                            countries outside the EU.<br /><br />
+                            You can accept all, or decline non-essential data sharing. Your reading access is
+                            <strong>not
+                                affected</strong> by your choice. You can change your preferences at any time under
+                            Privacy Settings.
+                        </div>
+                        <div class="response-banner" id="response-banner"></div>
+                        <div class="consent-body" style="margin-top: 12px; font-size: 12px; color: #5f5343;">Adjust the
+                            boxes below
+                            to set your consent preferences. Any change makes the Save preferences button active.</div>
+                    </div>
+                    <div class="consent-checks" id="consent-checks">
+                        <label class="check-item" for="reject-ads">
+                            <input type="checkbox" id="reject-ads" data-check="true" />
+                            <div class="check-item-text">
+                                <div class="check-item-title">Decline personalised advertising</div>
+                                <div class="check-item-desc">Stop ad targeting based on your browsing history and
+                                    interests.</div>
+                            </div>
+                        </label>
+                        <label class="check-item" for="reject-analytics">
+                            <input type="checkbox" id="reject-analytics" data-check="true" />
+                            <div class="check-item-text">
+                                <div class="check-item-title">Decline analytics tracking</div>
+                                <div class="check-item-desc">Refuse behavioural and performance analytics shared with
+                                    third parties.
+                                </div>
+                            </div>
+                        </label>
+                        <label class="check-item" for="reject-sharing">
+                            <input type="checkbox" id="reject-sharing" data-check="true" />
+                            <div class="check-item-text">
+                                <div class="check-item-title">Decline partner data sharing</div>
+                                <div class="check-item-desc">Prevent your data from being distributed to external
+                                    marketing partners.
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="consent-actions">
+                        <button class="btn-accept" id="btn-accept" onclick="handleConsent('accept')">Accept all</button>
+                        <button class="btn-save" id="btn-save" onclick="handleConsent('preferences')" disabled>Save
+                            preferences</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /home-screen -->
+
+    <script>
+        /* ── Date ── */
+        const fmt = new Intl.DateTimeFormat('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const ds = fmt.format(new Date());
+        document.getElementById('today-date').textContent = ds;
+        document.getElementById('today-date-home').textContent = ds;
+
+        /* ── Navigation ── */
+        function goToHome() {
+            document.getElementById('signup-screen').classList.remove('active');
+            document.getElementById('home-screen').classList.add('active');
+            // Show consent popup after short delay
+            setTimeout(() => {
+                document.getElementById('consent-overlay').classList.add('show');
+            }, 800);
+        }
+
+        /* ── Required decline checkboxes with haptic feedback ── */
+        const consentChecks = Array.from(document.querySelectorAll('[data-check]'));
+        const btnSave = document.getElementById('btn-save');
+        let hasInteracted = false;
+        const consentStats = {
+            checkboxEvents: [],
+            finalAction: null,
+            actionTime: null,
+            finalStates: {}
+        };
+
+        function updateSaveButton() {
+            btnSave.disabled = !hasInteracted;
+        }
+
+        function recordCheckboxEvent(checkbox, action) {
+            const labelText = checkbox.closest('.check-item')?.querySelector('.check-item-title')?.textContent.trim() || checkbox.id;
+            consentStats.checkboxEvents.push({
+                checkboxId: checkbox.id,
+                label: labelText,
+                action,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        consentChecks.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked && navigator.vibrate) {
+                    navigator.vibrate([120, 40, 140, 40, 180, 30, 220]);
+                }
+                hasInteracted = true;
+                recordCheckboxEvent(checkbox, checkbox.checked ? 'checked' : 'unchecked');
+                updateSaveButton();
+            });
+        });
+
+        function downloadConsentStats() {
+            const headers = ['event', 'checkboxId', 'checkboxLabel', 'action', 'timestamp', 'finalChoice', 'finalTime'];
+            const rows = [headers];
+
+            consentStats.checkboxEvents.forEach(evt => {
+                rows.push(['checkbox', evt.checkboxId, evt.label, evt.action, evt.timestamp, consentStats.finalAction || '', consentStats.actionTime || '']);
+            });
+            rows.push(['final', '', '', '', '', consentStats.finalAction || '', consentStats.actionTime || '']);
+            Object.entries(consentStats.finalStates).forEach(([checkboxId, state]) => {
+                const checkbox = document.getElementById(checkboxId);
+                const label = checkbox?.closest('.check-item')?.querySelector('.check-item-title')?.textContent.trim() || checkboxId;
+                rows.push(['final-state', checkboxId, label, state, '', consentStats.finalAction || '', consentStats.actionTime || '']);
+            });
+
+            const csv = rows.map(row => row.map(value => `"${String(value).replace(/"/g, '""')}"`).join(',')).join('\r\n');
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `consent-behaviour-${new Date().toISOString().replace(/[:.]/g, '-')}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        /* ── Accept / close ── */
+        function handleConsent(choice) {
+            const banner = document.getElementById('response-banner');
+            const overlay = document.getElementById('consent-overlay');
+
+            document.getElementById('btn-accept').disabled = true;
+            btnSave.disabled = true;
+
+            if (choice === 'accept') {
+                banner.textContent = '✓ Preferences saved — thank you for accepting.';
+                banner.className = 'response-banner accepted show';
+            } else if (choice === 'preferences') {
+                banner.textContent = '✓ Preferences saved — your selections have been recorded.';
+                banner.className = 'response-banner accepted show';
+            } else {
+                banner.textContent = '✓ Non-essential data sharing declined.';
+                banner.className = 'response-banner declined show';
+            }
+
+            consentChecks.forEach(checkbox => {
+                consentStats.finalStates[checkbox.id] = checkbox.checked ? 'declined' : 'accepted';
+            });
+            consentStats.finalAction = choice;
+            consentStats.actionTime = new Date().toISOString();
+            downloadConsentStats();
+
+            setTimeout(() => {
+                overlay.classList.remove('show');
+            }, 2200);
+        }
+    </script>
 </body>
 
 </html>
