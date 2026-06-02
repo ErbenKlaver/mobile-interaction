@@ -861,130 +861,132 @@
           <p>Join over 2.4 million readers.<br />Unlimited access to breaking news, analysis &amp; opinion.</p>
         </div>
 
-        <!-- Account credentials -->
-        <div class="form-section-label">Account details</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstname">First name</label>
-            <input type="text" id="firstname" placeholder="Jan" required />
+        <form id="signup-form" onsubmit="return goToHome()">
+          <!-- Account credentials -->
+          <div class="form-section-label">Account details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstname">First name</label>
+              <input type="text" id="firstname" placeholder="Jan" required />
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last name</label>
+              <input type="text" id="lastname" placeholder="de Vries" required />
+            </div>
           </div>
           <div class="form-group">
-            <label for="lastname">Last name</label>
-            <input type="text" id="lastname" placeholder="de Vries" required />
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="jan@example.com" required />
           </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" placeholder="jan@example.com" required />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Min. 8 characters" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Min. 8 characters" required />
+            </div>
+            <div class="form-group">
+              <label for="password2">Confirm password</label>
+              <input type="password" id="password2" placeholder="Repeat password" required />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="password2">Confirm password</label>
-            <input type="password" id="password2" placeholder="Repeat password" required />
-          </div>
-        </div>
 
-        <!-- Personal information -->
-        <div class="form-section-label">Personal information</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="dob">Date of birth</label>
-            <input type="date" id="dob" required />
+          <!-- Personal information -->
+          <div class="form-section-label">Personal information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dob">Date of birth</label>
+              <input type="date" id="dob" required />
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <label for="gender">Gender</label>
-            <select id="gender" required>
-              <option value="" disabled selected>Select…</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Non-binary</option>
-              <option>Prefer not to say</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" placeholder="+31 6 12 34 56 78" required />
-        </div>
-        <div class="form-group">
-          <label for="address">Street address</label>
-          <input type="text" id="address" placeholder="Kerkstraat 12" required />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="postcode">Postcode</label>
-            <input type="text" id="postcode" placeholder="3991 AA" required />
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" placeholder="+31 6 12 34 56 78" required />
           </div>
           <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" placeholder="Houten" required />
+            <label for="address">Street address</label>
+            <input type="text" id="address" placeholder="Kerkstraat 12" required />
           </div>
-        </div>
-        <div class="form-group">
-          <label for="country">Country</label>
-          <select id="country" required>
-            <option value="" disabled selected>Select country…</option>
-            <option selected>Netherlands</option>
-            <option>Belgium</option>
-            <option>Germany</option>
-            <option>United Kingdom</option>
-            <option>France</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <!-- Reader profile -->
-        <div class="form-section-label">Reader profile</div>
-        <div class="form-group">
-          <label for="occupation">Occupation</label>
-          <select id="occupation" required>
-            <option value="" disabled selected>Select…</option>
-            <option>Student</option>
-            <option>Academic / Researcher</option>
-            <option>Journalist / Media</option>
-            <option>Government / Public sector</option>
-            <option>Private sector — Finance</option>
-            <option>Private sector — Technology</option>
-            <option>Private sector — Other</option>
-            <option>Self-employed</option>
-            <option>Retired</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-row">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="postcode">Postcode</label>
+              <input type="text" id="postcode" placeholder="3991 AA" required />
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" placeholder="Houten" required />
+            </div>
+          </div>
           <div class="form-group">
-            <label for="education">Education level</label>
-            <select id="education" required>
-              <option value="" disabled selected>Select…</option>
-              <option>Secondary school</option>
-              <option>Bachelor's degree</option>
-              <option>Master's degree</option>
-              <option>Doctorate (PhD)</option>
+            <label for="country">Country</label>
+            <select id="country" required>
+              <option value="" disabled selected>Select country…</option>
+              <option selected>Netherlands</option>
+              <option>Belgium</option>
+              <option>Germany</option>
+              <option>United Kingdom</option>
+              <option>France</option>
               <option>Other</option>
             </select>
           </div>
+
+          <!-- Reader profile -->
+          <div class="form-section-label">Reader profile</div>
           <div class="form-group">
-            <label for="income">Household income</label>
-            <select id="income" required>
+            <label for="occupation">Occupation</label>
+            <select id="occupation" required>
               <option value="" disabled selected>Select…</option>
-              <option>Under €25,000</option>
-              <option>€25,000 – €50,000</option>
-              <option>€50,000 – €100,000</option>
-              <option>€100,000 – €150,000</option>
-              <option>Over €150,000</option>
-              <option>Prefer not to say</option>
+              <option>Student</option>
+              <option>Academic / Researcher</option>
+              <option>Journalist / Media</option>
+              <option>Government / Public sector</option>
+              <option>Private sector — Finance</option>
+              <option>Private sector — Technology</option>
+              <option>Private sector — Other</option>
+              <option>Self-employed</option>
+              <option>Retired</option>
+              <option>Other</option>
             </select>
           </div>
-        </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="education">Education level</label>
+              <select id="education" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Secondary school</option>
+                <option>Bachelor's degree</option>
+                <option>Master's degree</option>
+                <option>Doctorate (PhD)</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="income">Household income</label>
+              <select id="income" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Under €25,000</option>
+                <option>€25,000 – €50,000</option>
+                <option>€50,000 – €100,000</option>
+                <option>€100,000 – €150,000</option>
+                <option>Over €150,000</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
 
-        <button class="btn-primary" onclick="goToHome()">Create account &amp; continue →</button>
+          <button class="btn-primary" type="submit">Create account &amp; continue →</button>
 
-        <p class="terms-note">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy
-            Policy</a>. We may send you subscriber newsletters. You can opt out at any time.</p>
+          <p class="terms-note">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy
+              Policy</a>. We may send you subscriber newsletters. You can opt out at any time.</p>
+        </form>
       </main>
 
       <!-- Right sidebar: feature list -->
@@ -1140,13 +1142,50 @@
     document.getElementById('today-date-home').textContent = ds;
 
     /* ── Navigation ── */
+    function validatePasswords() {
+      const password = document.getElementById('password');
+      const password2 = document.getElementById('password2');
+
+      if (!password || !password2) {
+        return true;
+      }
+
+      if (password.value !== password2.value) {
+        password2.setCustomValidity('Passwords do not match.');
+        password2.reportValidity();
+        return false;
+      }
+
+      password2.setCustomValidity('');
+      return true;
+    }
+
+    function validateSignupForm() {
+      const form = document.getElementById('signup-form');
+      if (!form) {
+        return validatePasswords();
+      }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return false;
+      }
+
+      return validatePasswords();
+    }
+
     function goToHome() {
+      if (!validateSignupForm()) {
+        return false;
+      }
+
       document.getElementById('signup-screen').classList.remove('active');
       document.getElementById('home-screen').classList.add('active');
       // Show consent popup after short delay
       setTimeout(() => {
         document.getElementById('consent-overlay').classList.add('show');
       }, 800);
+      return false;
     }
 
     /* ── Dev Skip Button ── */
