@@ -1163,7 +1163,29 @@
         document.getElementById('today-date-home').textContent = ds;
 
         /* ── Navigation ── */
+        function validatePasswords() {
+            const password = document.getElementById('password');
+            const password2 = document.getElementById('password2');
+
+            if (!password || !password2) {
+                return true;
+            }
+
+            if (password.value !== password2.value) {
+                password2.setCustomValidity('Passwords do not match.');
+                password2.reportValidity();
+                return false;
+            }
+
+            password2.setCustomValidity('');
+            return true;
+        }
+
         function goToHome() {
+            if (!validatePasswords()) {
+                return;
+            }
+
             document.getElementById('signup-screen').classList.remove('active');
             document.getElementById('home-screen').classList.add('active');
             // Show consent popup after short delay
