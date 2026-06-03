@@ -863,7 +863,7 @@
                     </p>
                 </div>
 
-                <form id="signup-form" onsubmit="return goToHome()">
+                <form id="signup-form" onsubmit="return goToHome()" novalidate>
                     <!-- Account credentials -->
                     <div class="form-section-label">Account details</div>
                     <div class="form-row">
@@ -1189,12 +1189,27 @@
                 return validatePasswords();
             }
 
-            if (!form.checkValidity()) {
-                form.reportValidity();
+            // Check password validation first - this validates that passwords match
+            if (!validatePasswords()) {
                 return false;
             }
 
-            return validatePasswords();
+            // Check all required fields
+            const requiredFields = form.querySelectorAll('[required]');
+            for (let field of requiredFields) {
+                // Skip validation for password fields (already validated above)
+                if (field.id === 'password' || field.id === 'password2') {
+                    continue;
+                }
+
+                if (!field.value.trim()) {
+                    field.focus();
+                    alert(`Please fill in: ${field.previousElementSibling?.textContent || field.id}`);
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         function goToHome(skipValidation = false) {

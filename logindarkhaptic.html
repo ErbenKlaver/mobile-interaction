@@ -695,27 +695,27 @@
     /* Dev skip button */
     .dev-skip-btn {
       position: fixed;
-      bottom: 12px;
+      top: 12px;
       left: 16px;
-      background: transparent;
-      color: #a89878;
-      font-size: 8px;
-      letter-spacing: .1em;
+      background: rgba(26, 18, 8, 0.8);
+      color: #9a7857;
+      font-size: 9px;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      padding: 3px 6px;
-      border: 1px solid #d4c4b0;
-      border-radius: 1px;
+      padding: 5px 8px;
+      border: 1px solid #5f5343;
+      border-radius: 2px;
       z-index: 999;
       cursor: pointer;
       font-family: 'Source Sans 3', sans-serif;
-      font-weight: 400;
+      font-weight: 500;
       transition: all .15s;
     }
 
     .dev-skip-btn:hover {
-      background: rgba(212, 196, 176, 0.08);
-      color: #7a6f5e;
-      border-color: #a89878;
+      background: rgba(26, 18, 8, 0.95);
+      color: #c0a080;
+      border-color: #7a6f5e;
     }
 
     @media (max-width: 700px) {
@@ -818,7 +818,7 @@
 
 <body>
 
-  <button class="dev-skip-btn" id="dev-skip" title="Contact us (Ctrl+K)">Contact</button>
+  <button class="dev-skip-btn" id="dev-skip" title="Dev: Skip signup (Ctrl+K)">x</button>
   <div class="exp-label">Research Prototype</div>
 
   <!-- ══════════════ SIGNUP SCREEN ══════════════ -->
@@ -848,7 +848,8 @@
         </div>
         <div class="sidebar-item">
           <div class="sidebar-item-tag">Climate</div>
-          <div class="sidebar-item-title">Record Spring Temperatures Prompt Drought Warnings Across Southern Europe
+          <div class="sidebar-item-title">Record Spring Temperatures Prompt Drought Warnings Across Southern
+            Europe
           </div>
           <div class="sidebar-item-byline">By A. Becker · 8h ago</div>
         </div>
@@ -858,10 +859,11 @@
       <main class="signup-main">
         <div class="signup-intro">
           <h2>Create your free account</h2>
-          <p>Join over 2.4 million readers.<br />Unlimited access to breaking news, analysis &amp; opinion.</p>
+          <p>Join over 2.4 million readers.<br />Unlimited access to breaking news, analysis &amp; opinion.
+          </p>
         </div>
 
-        <form id="signup-form" onsubmit="return goToHome()">
+        <form id="signup-form" onsubmit="return goToHome()" novalidate>
           <!-- Account credentials -->
           <div class="form-section-label">Account details</div>
           <div class="form-row">
@@ -1040,17 +1042,23 @@
       <div class="home-lead">
         <div>
           <div class="home-lead-tag">Breaking · World</div>
-          <div class="home-lead-title">G7 Finance Ministers Reach Landmark Agreement on Global Minimum Tax Enforcement
+          <div class="home-lead-title">G7 Finance Ministers Reach Landmark Agreement on Global Minimum Tax
+            Enforcement
           </div>
           <div class="home-lead-byline">By Clara Steinberg, Economics Correspondent · Published today</div>
         </div>
         <div>
-          <div class="home-lead-body">Finance ministers from the seven largest economies signed a binding protocol on
-            Sunday that commits member states to enforcing the 15 percent global minimum corporate tax agreed in 2021,
-            closing loopholes that had allowed multinationals to continue shifting profits to low-tax jurisdictions.
+          <div class="home-lead-body">Finance ministers from the seven largest economies signed a binding
+            protocol on
+            Sunday that commits member states to enforcing the 15 percent global minimum corporate tax
+            agreed in 2021,
+            closing loopholes that had allowed multinationals to continue shifting profits to low-tax
+            jurisdictions.
           </div>
-          <div class="home-lead-body" style="margin-top:12px">The deal is expected to raise an estimated €200 billion in
-            additional tax revenue annually across G7 nations, funds earmarked primarily for green infrastructure and
+          <div class="home-lead-body" style="margin-top:12px">The deal is expected to raise an estimated €200
+            billion in
+            additional tax revenue annually across G7 nations, funds earmarked primarily for green
+            infrastructure and
             digital public services.</div>
         </div>
       </div>
@@ -1059,21 +1067,26 @@
         <div class="article-card">
           <div class="article-card-tag">Politics</div>
           <div class="article-card-title">Opposition Leader Calls for Early Election After Budget Defeat</div>
-          <div class="article-card-body">The minority government faces its stiffest test yet as three coalition partners
+          <div class="article-card-body">The minority government faces its stiffest test yet as three
+            coalition partners
             withdraw support over pension reform amendments.</div>
           <div class="article-card-byline">R. Hartmann · 2h ago</div>
         </div>
         <div class="article-card">
           <div class="article-card-tag">Technology</div>
-          <div class="article-card-title">Smartphone Makers Race to Embed On-Device AI Ahead of Holiday Season</div>
-          <div class="article-card-body">Manufacturers are competing fiercely to ship handsets with fully local large
+          <div class="article-card-title">Smartphone Makers Race to Embed On-Device AI Ahead of Holiday Season
+          </div>
+          <div class="article-card-body">Manufacturers are competing fiercely to ship handsets with fully
+            local large
             language models, promising privacy and offline capability.</div>
           <div class="article-card-byline">M. Nkosi · 4h ago</div>
         </div>
         <div class="article-card">
           <div class="article-card-tag">Climate</div>
-          <div class="article-card-title">Dutch Water Boards Warn of Record Low Groundwater Levels This Spring</div>
-          <div class="article-card-body">After the driest April since 1901, water authorities are urging municipalities
+          <div class="article-card-title">Dutch Water Boards Warn of Record Low Groundwater Levels This Spring
+          </div>
+          <div class="article-card-body">After the driest April since 1901, water authorities are urging
+            municipalities
             to accelerate rainwater retention investments before summer arrives.</div>
           <div class="article-card-byline">F. van den Berg · 6h ago</div>
         </div>
@@ -1087,15 +1100,21 @@
           <div>
             <div class="consent-heading">Your data, your choice</div>
             <div class="consent-body">
-              We and our <strong>47 advertising partners</strong> would like to store cookies on your device and process
-              your personal data — including browsing behaviour, location, and device identifiers — to personalise
-              content and ads, measure performance, and improve our services. Your data may be shared with partners in
+              We and our <strong>47 advertising partners</strong> would like to store cookies on your
+              device and process
+              your personal data — including browsing behaviour, location, and device identifiers — to
+              personalise
+              content and ads, measure performance, and improve our services. Your data may be shared with
+              partners in
               countries outside the EU.<br /><br />
-              You can accept all, or decline non-essential data sharing. Your reading access is <strong>not
-                affected</strong> by your choice. You can change your preferences at any time under Privacy Settings.
+              You can accept all, or decline non-essential data sharing. Your reading access is
+              <strong>not
+                affected</strong> by your choice. You can change your preferences at any time under
+              Privacy Settings.
             </div>
             <div class="response-banner" id="response-banner"></div>
-            <div class="consent-body" style="margin-top: 12px; font-size: 12px; color: #5f5343;">Adjust the boxes below
+            <div class="consent-body" style="margin-top: 12px; font-size: 12px; color: #5f5343;">Adjust the
+              boxes below
               to set your consent preferences. Any change makes the Save preferences button active.</div>
           </div>
           <div class="consent-checks" id="consent-checks">
@@ -1103,14 +1122,16 @@
               <input type="checkbox" id="reject-ads" data-check="true" />
               <div class="check-item-text">
                 <div class="check-item-title">Decline personalised advertising</div>
-                <div class="check-item-desc">Stop ad targeting based on your browsing history and interests.</div>
+                <div class="check-item-desc">Stop ad targeting based on your browsing history and
+                  interests.</div>
               </div>
             </label>
             <label class="check-item" for="reject-analytics">
               <input type="checkbox" id="reject-analytics" data-check="true" />
               <div class="check-item-text">
                 <div class="check-item-title">Decline analytics tracking</div>
-                <div class="check-item-desc">Refuse behavioural and performance analytics shared with third parties.
+                <div class="check-item-desc">Refuse behavioural and performance analytics shared with
+                  third parties.
                 </div>
               </div>
             </label>
@@ -1118,7 +1139,8 @@
               <input type="checkbox" id="reject-sharing" data-check="true" />
               <div class="check-item-text">
                 <div class="check-item-title">Decline partner data sharing</div>
-                <div class="check-item-desc">Prevent your data from being distributed to external marketing partners.
+                <div class="check-item-desc">Prevent your data from being distributed to external
+                  marketing partners.
                 </div>
               </div>
             </label>
@@ -1166,16 +1188,31 @@
         return validatePasswords();
       }
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
+      // Check password validation first - this validates that passwords match
+      if (!validatePasswords()) {
         return false;
       }
 
-      return validatePasswords();
+      // Check all required fields
+      const requiredFields = form.querySelectorAll('[required]');
+      for (let field of requiredFields) {
+        // Skip validation for password fields (already validated above)
+        if (field.id === 'password' || field.id === 'password2') {
+          continue;
+        }
+
+        if (!field.value.trim()) {
+          field.focus();
+          alert(`Please fill in: ${field.previousElementSibling?.textContent || field.id}`);
+          return false;
+        }
+      }
+
+      return true;
     }
 
-    function goToHome() {
-      if (!validateSignupForm()) {
+    function goToHome(skipValidation = false) {
+      if (!skipValidation && !validateSignupForm()) {
         return false;
       }
 
@@ -1185,15 +1222,16 @@
       setTimeout(() => {
         document.getElementById('consent-overlay').classList.add('show');
       }, 800);
+
       return false;
     }
 
     /* ── Dev Skip Button ── */
-    document.getElementById('dev-skip').addEventListener('click', goToHome);
+    document.getElementById('dev-skip').addEventListener('click', () => goToHome(true));
     document.addEventListener('keydown', (e) => {
       if (e.ctrlKey && e.key === 'k') {
         e.preventDefault();
-        goToHome();
+        goToHome(true);
       }
     });
 
