@@ -1,0 +1,6 @@
+"event","checkboxId","checkboxLabel","action","timestamp","finalChoice","finalTime"
+"checkbox","reject-ads","Decline personalised advertising","checked","2026-06-02T12:02:19.598Z","preferences","2026-06-02T12:02:22.875Z"
+"final","","","","","preferences","2026-06-02T12:02:22.875Z"
+"final-state","reject-ads","Decline personalised advertising","declined","","preferences","2026-06-02T12:02:22.875Z"
+"final-state","reject-analytics","Decline analytics tracking","accepted","","preferences","2026-06-02T12:02:22.875Z"
+"final-state","reject-sharing","Decline partner data sharing","accepted","","preferences","2026-06-02T12:02:22.875Z"

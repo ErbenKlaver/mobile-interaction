@@ -1,0 +1,8 @@
+"event","checkboxId","checkboxLabel","action","timestamp","finalChoice","finalTime"
+"checkbox","reject-ads","Decline personalised advertising","checked","2026-06-03T11:45:34.415Z","preferences","2026-06-03T11:45:39.326Z"
+"checkbox","reject-analytics","Decline analytics tracking","checked","2026-06-03T11:45:36.354Z","preferences","2026-06-03T11:45:39.326Z"
+"checkbox","reject-sharing","Decline partner data sharing","checked","2026-06-03T11:45:37.353Z","preferences","2026-06-03T11:45:39.326Z"
+"final","","","","","preferences","2026-06-03T11:45:39.326Z"
+"final-state","reject-ads","Decline personalised advertising","declined","","preferences","2026-06-03T11:45:39.326Z"
+"final-state","reject-analytics","Decline analytics tracking","declined","","preferences","2026-06-03T11:45:39.326Z"
+"final-state","reject-sharing","Decline partner data sharing","declined","","preferences","2026-06-03T11:45:39.326Z"

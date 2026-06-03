@@ -1,0 +1,3 @@
+group_name,haptic_experience,session_count,session_ids,average_duration_seconds,sessions_with_changed_mind,changed_mind_rate,average_change_count,sessions_all_declined,all_declined_rate
+Haptic experienced,True,4,consent_behaviour_2026_06_02T12_02_22_880Z; consent_behaviour_2026_06_02T12_32_58_711Z; consent_behaviour_2026_06_03T11_32_33_470Z; consent_behaviour_2026_06_03T11_45_39_330Z,9.353,2,0.500,3.00,3,0.750
+No haptics,False,1,consent_behaviour_2026_06_02T12_13_00_415Z,3.276,0,0.000,0.00,0,0.000
