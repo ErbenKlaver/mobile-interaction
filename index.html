@@ -535,6 +535,67 @@
             white-space: nowrap;
         }
 
+        .followup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 8, 4, 0.55);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+            opacity: 0;
+            transition: opacity .35s;
+            pointer-events: none;
+        }
+
+        .followup-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .followup-box {
+            background: var(--white);
+            width: min(520px, 100%);
+            border-radius: 18px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 26px 60px rgba(0, 0, 0, .14);
+        }
+
+        .followup-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .followup-body {
+            font-size: 14px;
+            color: #3a3025;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .followup-button {
+            background: var(--ink);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 13px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background .2s;
+        }
+
+        .followup-button:hover {
+            background: #2d2418;
+        }
+
         .btn-accept:hover {
             background: #2d2418;
         }
@@ -1155,6 +1216,14 @@
             </div>
         </div>
 
+        <div class="overlay followup-overlay" id="followup-overlay">
+            <div class="followup-box">
+                <div class="followup-title">You’re all set</div>
+                <div class="followup-body">You can go back to the survey and submit your downloaded file for the statistics.</div>
+                <button class="followup-button" id="followup-close" type="button">Back to survey</button>
+            </div>
+        </div>
+
     </div><!-- /home-screen -->
 
     <script>
@@ -1272,6 +1341,29 @@
             });
         });
 
+        const followupOverlay = document.getElementById('followup-overlay');
+        const followupClose = document.getElementById('followup-close');
+
+        followupClose.addEventListener('click', () => {
+            // Try to navigate back to the previous page (survey) first.
+            if (window.history && window.history.length > 1) {
+                window.history.back();
+                // As a safety fallback, remove overlays after a short delay if navigation didn't occur.
+                setTimeout(() => {
+                    if (document.visibilityState === 'visible') {
+                        followupOverlay.classList.remove('show');
+                        document.getElementById('home-screen').classList.remove('active');
+                        document.getElementById('signup-screen').classList.add('active');
+                    }
+                }, 300);
+            } else {
+                // No history to go back to — revert to the signup screen in-page.
+                followupOverlay.classList.remove('show');
+                document.getElementById('home-screen').classList.remove('active');
+                document.getElementById('signup-screen').classList.add('active');
+            }
+        });
+
         function downloadConsentStats() {
             const headers = ['event', 'checkboxId', 'checkboxLabel', 'action', 'timestamp', 'finalChoice', 'finalTime'];
             const rows = [headers];
@@ -1327,6 +1419,12 @@
             setTimeout(() => {
                 overlay.classList.remove('show');
             }, 2200);
+
+            if (choice === 'accept' || choice === 'preferences') {
+                setTimeout(() => {
+                    followupOverlay.classList.add('show');
+                }, 2600);
+            }
         }
     </script>
 </body>
